@@ -1,0 +1,189 @@
+\section{Energieverteilungsnetze}
+
+\subsection{Drehstrom (DS), 3-Phasen-System}
+
+
+
+\subsubsection{Spannungen und Str\"ome in DS}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.95\columnwidth]{./Bilder/Energieverteilungsnetze/DS_Allgemein.png}
+        \includegraphics[width=0.95\columnwidth]{./Bilder/Energieverteilungsnetze/Zeigerdiagramme.png}
+    \end{figure}
+
+    \underline{Leiter-Erde-Spannung \(U_{LE}=230V\)}
+    \begin{flalign*}
+        U_{LE} &= U_Y &\\
+        \underline{U}_{L1} &= U_{LE} \angle 0^\circ &\\
+        \underline{U}_{L2} &= U_{LE} \angle -120^\circ &\\
+        \underline{U}_{L3} &= U_{LE} \angle -240^\circ &
+    \end{flalign*}
+
+    \underline{Leiter-Leiter-Spannung \(U_{LL}=400V\)}
+    \begin{flalign*}
+        U_{LL} &= U_\Delta = U_{LE} \cdot \sqrt{3} &\\
+        \underline{U}_{12} &= \underline{U}_{L1} - \underline{U}_{L2} = U_{LL} \angle 30^\circ &\\
+        \underline{U}_{23} &= \underline{U}_{L2} - \underline{U}_{L3} = U_{LL} \angle -90^\circ &\\
+        \underline{U}_{31} &= \underline{U}_{L3} - \underline{U}_{L1} = U_{LL} \angle -210^\circ &
+    \end{flalign*}
+
+    \underline{Ströme in DS (symmetrisch)}
+    \begin{flalign*}
+        \underline{I}_{Lx} &= \dfrac{\underline{U}_{Lx}}{\underline{Z}_Y} &\\
+        \underline{I}_N &= \underline{I}_{L1} + \underline{I}_{L2} + \underline{I}_{L3} = 0 &
+    \end{flalign*}
+
+\subsubsection{Einphasiges ESB (symmetrisch)}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.95\columnwidth]{./Bilder/Energieverteilungsnetze/einphasiges_ESB.png}
+    \end{figure}
+    Im einphasigen ESB ist aufgrund der symmetrischen Belastung (\(I_N = 0\)) der Neutralleiter nicht notwendig.
+
+    Um eine Dreieckschaltung so darzustellen, wird eine Dreieck-Stern-Umwandlung durchgeführt.
+
+    \textbf{Dreieck-Stern-Umwandlung}
+    \begin{flalign*}
+        \underline{Z}_1 &= \frac{\underline{Z}_{12} \cdot \underline{Z}_{31}}{\underline{Z}_{12} + \underline{Z}_{23} + \underline{Z}_{31}} &\\
+        \underline{Z}_2 &= \frac{\underline{Z}_{12} \cdot \underline{Z}_{23}}{\underline{Z}_{12} + \underline{Z}_{23} + \underline{Z}_{31}} &\\
+        \underline{Z}_3 &= \frac{\underline{Z}_{23} \cdot \underline{Z}_{31}}{\underline{Z}_{12} + \underline{Z}_{23} + \underline{Z}_{31}} &
+    \end{flalign*}
+
+    \textbf{Dreieck-Stern-Umwandlung (symmetrisch)}
+    \begin{flalign*}
+        Z_Y &= \frac{Z_\Delta}{3} &
+    \end{flalign*}
+
+\subsubsection{Leistungen in DS}
+
+    \begin{flalign*}
+        \varphi &= \varphi_U - \varphi_I &
+    \end{flalign*}
+
+    \underline{Scheinleistung S [VA]:}
+    \begin{flalign*}
+        S &= 3 \cdot U_{LE} \cdot I_L = \sqrt{3} \cdot U_{LL} \cdot I_L = \sqrt{P^2 + Q^2} &\\
+        \underline{S} &= 3 \cdot \underline{U}_{LE} \cdot \underline{I}_L^* = \sqrt{3} \cdot \underline{U}_{LL} \cdot \underline{I}_L^* = P+jQ &
+    \end{flalign*}
+
+    \textit{in Sternschaltung:}
+    \begin{flalign*}
+        \underline{S}_{3\sim} &= \frac{U_{LL}^2}{\underline{Z}_{LN}*} \qquad
+        \underline{S}_{1\sim} = \frac{U_{LL}^2}{3 \cdot \underline{Z}_{LN}*} &
+    \end{flalign*}
+    \(\underline{S}_{3 \sim}:\) 3-Phasen-Scheinleistung\\
+
+    \underline{Wirkleistung P [W]: Realteil}
+    \begin{flalign*}
+    P   &= S \cdot \cos \varphi
+        = 3 \cdot U_{LE} \cdot I_L \cdot \cos \varphi &\\
+        &= \sqrt{3} \cdot U_{LL} \cdot I_L \cdot \cos \varphi &
+    \end{flalign*}
+
+    \underline{Blindleistung Q [var]: Imaginärteil}
+    \begin{flalign*}
+    Q &= S \cdot \sin \varphi = P \cdot \tan \varphi
+        = 3 \cdot U_{LE} \cdot I_L \cdot \sin \varphi &\\
+        &= \sqrt{3} \cdot U_{LL} \cdot I_L \cdot \sin \varphi
+    \end{flalign*}
+    \(Q > 0\) : induktiv \qquad \(Q < 0\) : kapazitiv
+
+\subsubsection{Momentanleistungen in DS (einphasig)}
+{\small
+    \begin{flalign*}
+        &p(t) = u(t) \cdot i(t) = \hat{u} \cos(\omega t + \varphi_u) \cdot \hat{i} \cos(\omega t + \varphi_i) &\\
+             &= \hat{u} \cdot \hat{i} \left[\cos(\omega t + \varphi_u) \cdot \cos(\omega t + \varphi_i)\right] &\\
+             &= U \cdot I \cdot \left[ \cos(2 \omega t + \varphi_u + \varphi_i) + \cos(\varphi_u - \varphi_i)\right] &\\
+             &= U \cdot I \cdot \cos(\varphi) \left[1 + \cos(2(\omega t + \varphi_i))\right] - U \cdot I \cdot \sin(\varphi) \sin(2(\omega t + \varphi_i)) &\\
+             &= P \cdot \left[1 + \cos(2(\omega t + \varphi_i))\right] - Q \cdot \sin(2(\omega t + \varphi_i)) &
+    \end{flalign*}
+}
+
+
+\subsection{Klassifizierung und Struktur}
+\subsubsection{Spannungsbezeichnungen}
+
+\textcolor{red}{\textbf{Alle Spannungswerte sind als Leiter-Leiter-Spannungen angegeben, da dies die höchste auftretende ist.}}
+
+\begin{itemize}
+    \item \textbf{Netznennspannung \(U_n\): } \\
+        dient zur Kennzeichnung, meist gleich der Betriebsspannung
+    
+    \item \textbf{Betriebsspannung \(U_b\): } \\
+        tatsächliche momentane Spannung, abhängig von der Belastung
+
+    \item \textbf{Höchste Spannung für Betriebsmittel \(U_m\): } \\
+        maximale Spannung, die ein Betriebsmittel aushalten muss
+
+    \item \textbf{Bemessungsspannung eines Betriebsmittel \(U_r\): } \\
+        Spannung, für die ein Betriebsmittel ausgelegt ist 
+        \begin{flalign*}
+            U_r \ge U_m
+        \end{flalign*}
+
+\end{itemize}
+
+\subsubsection{Netztopologie}
+
+\begin{itemize}
+    \item \textbf{Offene Netze: } einseitig gespeiste Leitung
+    \item \textbf{Strahlnetz: } einseitig gespeiste Leitung mit Verzweigungen
+    \item \textbf{Zweiseitig gespeiste Leitung}
+    \item \textbf{Ringnetz: } einseitig gespeiste Ringleitung
+    \item \textbf{geschlossenes Netz: } Maschennetz
+\end{itemize}
+
+
+% \subsection{Energiebedarf, Deckung}
+% \begin{enumerate}
+%     \item{\textbf{Tagesbelastungskurve}}
+% \begin{flalign*}
+%     W &= \int_{0}^{T_{n}} P(t)  \,dt \\
+%       &= P_{n} \cdot T_{a} = P_{max} \cdot T_{m} =
+%     P_{mittel} \cdot T_{n}
+% \end{flalign*}
+
+% \begin{tabular}[h]{l|l}
+%     \hline
+%     $P_{n}$         & Nennleistung \\
+%     $T_{a}$         & Ausnutzungsdauer \\
+%     \hline
+%     $P_{max}$       & Höchstlast \\
+%     $T_{m}$         & Benutzungsdauer \\
+%     \hline
+%     $P_{mittel}$    & mittlere Leistung \\
+%     $T_{n}$         & Nennbetriebsdauer (meist. 24h) \\
+% \end{tabular}\\
+% \\
+% \item{\textbf{Frequenz-Wirkleistungs-Regelung}}
+%     		\item[a)]{\underline{stationärer Zustand (Gleichgewicht)}}
+% 		\begin{align*}
+% 			 W_{rot} = \frac{1}{2} \cdot J \cdot \omega_{mech} ^{2} &\qquad
+% 			 \omega_{el} = p  \cdot \omega_{mech} \\
+% 			%  \vspace{1pt}\\
+% 			 W_{mech-zu} = W_{el-ab} &\qquad
+% 			 P_{mech-zu} = P_{el-ab}
+% 		\end{align*}
+
+% 		$p$: Polpaarzahl \quad
+% 		$J$: Massenträgheitsmoment\\
+
+% 		\item[b)]{\underline{Störung}}
+% 		% Sprunghafte Zunahme um $ \Delta P \Rightarrow$
+% 		% Abbremsen der Rotoren $\Rightarrow$ Sinken der Drehzahl aller Generatoren
+% 		% $\Rightarrow$ fehlende Energie wird aus gesp. Rotationsenergie aller elek.
+% 		% Maschinen übernommen $\Delta W_{rot}$
+% 		\begin{align*}
+% 			W_{m-zu} \neq W_{el-ab} &\qquad
+% 			P_{m-zu} \neq P_{el-ab} \\
+% 			\Delta W_{rot} = \frac{1}{2} \cdot & J \cdot (\omega_{stat} - \omega_{akt})\\
+% 		\end{align*}
+
+% \end{enumerate}
+
+% % \begin{gather*}
+% %     [R'] = [X'] = \frac{\Omega}{km} = \frac{m\Omega}{m} \\
+% %     [G'] = \frac{nS}{km} = \frac{pS}{m} \\
+% %     [B'] = \frac{\mu S}{km} = \frac{nS}{m}\\
+% %     B_{b}' = \omega C_{b}'
+% % \end{gather*}
