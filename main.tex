@@ -1,0 +1,69 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage{preamble}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{makecell}
+
+\def\FS{Formelsammlung}
+\def\Fach{Elektrische Anlagentechnik}
+\def\FachAkz{EA}
+\title{\FS \ \Fach}
+\author{Bastian Nagler}
+\date{\today}
+\def\Semester{SoSe 26}
+
+\begin{document}
+
+\pagenumbering{gobble}
+\begin{titlepage}
+\thispagestyle{empty}
+
+	\begin{center}
+		\vspace*{\stretch{0.5}}
+		\includegraphics[width=0.5\textwidth]{./Bilder/Logo/OTHR_FakEI_Logo.png}\\
+		\vspace*{\stretch{0.25}}
+		\Huge
+		\textsc{\FS}\\
+		\textsc{\Fach \hspace*{1pt} (\FachAkz)}\\
+		\large
+		\vspace*{\stretch{0.5}}
+		{nach Vorlesungsunterlagen von\\ F. Fuchs}\\
+		\vspace*{\stretch{0.5}}
+
+\vspace*{\stretch{2}}
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{l l}
+	\href{https://github.com/BastianNagler/EA_Formelsammlung}{Originalversion:} & \hspace{4cm} Bastian Nagler\\
+    %Matrikelnummer:  & \hspace{4cm}\MatNr\\
+    Letzter Stand:  & \hspace{4cm} \textsc{\Semester}  \\
+    Lizenz:  & \hspace{4cm} GPLv3
+\end{tabular}
+}
+\vspace*{\stretch{1}}
+
+\end{center}
+\end{titlepage}
+
+
+\newpage
+
+\tableofcontents\clearpage
+
+\pagestyle{fancy}
+%\renewcommand{\sectionmark}[1]{\markboth{#1}}
+\fancyhead[L]{\FachAkz}
+\fancyhead[R]{\nouppercase{\leftmark}}
+%\rhead{\leftmark}
+%\cfoot{\vspace{-20pt}\thepage}
+\pagenumbering{arabic}
+\fancyfoot[c]{\thepage \hspace{1pt} von \pageref{LastPage}}
+% \setlength{\columnsep}{1pt}
+\raggedcolumns
+\begin{multicols*}{2}
+
+	\include{sections/bedarfsdeckung}
+
+\end{multicols*}
+\end{document}

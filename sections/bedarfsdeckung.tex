@@ -1,0 +1,140 @@
+\section{Bedarfsdeckung}
+
+\subsection{Deckung des Energiebedarfs}
+\subsubsection{Begriffe}
+    {\small 
+        \begin{itemize}
+            \item \textbf{Bruttostromverbrauch: } Gesamtstromverbrauch + Eigenbedarf Kraftwerke
+            \item \textbf{Gesamtstromverbrauch: } Nettostromverbrauch + Netzverluste + Pumpspeicherverbrauch
+            \item \textbf{Nettostromverbrauch: } Stromverbrauch der Endkunden
+        \end{itemize}
+    }
+
+\subsubsection{Zusammensetzung Bedarf}
+    {\small Zusammensetzung des Strombedarfs in Deutschland (2025): \\ 
+    Gesamtstromverbrauch: 464 TWh
+        \begin{itemize}
+            \item Industrie: 190 TWh
+            \item Haushalte: 134 TWh
+            \item Gewerbe, Handel, Dienstleistungen: 122 TWh
+            \item Verkehr: 19 TWh
+        \end{itemize}
+    }
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.95\columnwidth]{./Bilder/Bedarfsdeckung/Stromfluss25.png}
+        \caption{Stromfluss in Deutschland 2025 in TWh}
+    \end{figure}
+
+\subsubsection{Zusammensetzung Erzeugung}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.95\columnwidth]{./Bilder/Bedarfsdeckung/Erzeugung_Zusammensetzung.png}
+        \caption{Zusammensetzung Erzeugung in DE 2025}
+    \end{figure}
+
+\subsection{Deckung des Leistungsbedarfs}
+\subsubsection{Leistungsgleichgewicht}
+    {\small
+        \underline{Stationärer Betrieb: }
+        \begin{align*}
+            W_{m_zu} = W_{el_ab} \quad ; \quad P_{m_zu} = P_{el_ab}
+        \end{align*}
+        \underline{Kopplung zwischen Leistung und Drehzahl}
+        \begin{gather*}
+        \omega_{el} = p \cdot \omega_{m} \\
+        2 \pi f = p \cdot 2 \pi \cdot n \rightarrow f = p \cdot n 
+        \end{gather*}
+
+        \begin{itemize}
+            \item n = mechanische Drehzahl [1/s]
+            \item p = Polpaarzahl der Maschine
+            \item f = elektrische Frequenz [Hz]
+        \end{itemize}
+        Leistungsbedarf steigt \textrightarrow Drehzahl sinkt \textrightarrow Frequenz sinkt \textrightarrow Erzeugung muss erhöht werden
+
+        Steigt die Frequenz zu weit, werden Erzeuger abgeschaltet. \\
+        Sinkt die Frequenz zu weit, werden Verbraucher abgeworfen.
+    }
+
+\subsubsection{Belastungsdiagramm}
+    {\small
+        \begin{itemize}
+        \item Die Nennbetriebsdauer \textbf{\(T_n\)} in h (=Beobachtungsdauer) gibt Art des Belastungsdiagramms an. 
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.95\columnwidth]{./Bilder/Bedarfsdeckung/Belastungsdiagramm.png}
+                \caption{Belastungsdiagramm}
+            \end{figure}
+
+        \item \textbf{Kenngrößen: }
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.7\columnwidth]{./Bilder/Bedarfsdeckung/Belastungsdiagramm_Kenngroessen.png}
+                \caption{Kenngrößen Belastungsdiagramm}
+            \end{figure}
+            \begin{itemize}
+                \item Nennleistung \(P_n\) und Ausnutzungsdauer \(T_a\)
+                \item Höchstlast \(P_{max}\) und Benutzungsdauer \(T_m\)
+                \item mittlere Leistung \(P_{mittel}\) und Nennbetriebsdauer \(T_n\)
+            \end{itemize}
+
+        \item \textbf{Elektrische Energie: }
+            \begin{align*}
+                W = \int_{0}^{T_n} P(t) \, dt = P_n \cdot T_a = P_{max} \cdot T_m = P_{mittel} \cdot T_n
+            \end{align*}
+        
+        \item \textbf{Typische Jahresnutzungsdauer \(T_m\): }
+            \begin{table}[H]
+                \centering
+                \begin{tabular}{l l}
+                    \toprule
+                    \textbf{Verbraucher} & \\
+                    \midrule
+                    HöS-Netz: Starklast & 7660 h (365 x 21 h) \\
+                    HöS-Netz: Schwachlast & 7120 h (365 x 19,5 h) \\
+                    öffentliche EV & 6200 h \\
+                    Landwirtschaft & 150 bis 250 h \\
+                    Haushalt & 500 bis 1300 h \\
+                    chemische Industrie & 6000 bis 8000 h \\
+                    \toprule
+                    \textbf{Erzeuger} & \\
+                    \midrule
+                    Kernkraftwerke & 8500 h \\
+                    Laufwasserkraftwerke & 6500 bis 7500 h \\
+                    Offshore-Windparks & 3000 h \\
+                    Onshore-Windparks & 2000 h \\
+                    Photovoltaik & 800 bis 1000 h \\
+                    \bottomrule
+                \end{tabular}
+            \end{table}
+
+        \item \textbf{Kategorisierung:} 
+            \begin{table}[H]
+                \centering 
+                \begin{tabular}{l r r}
+                    \toprule
+                    Kategorie & Jahresdauer & Tagesdauer \\
+                    \midrule
+                    Spitzenlast & < 2000 h & < 5 h\\
+                    Mittellast & 2000 h \textasciitilde \ 5000 h & 5 h \textasciitilde \ 14 h\\
+                    Grundlast & > 5000 h & > 14 h\\
+                    \bottomrule
+                \end{tabular}
+            \end{table}
+
+            \begin{table}[H]
+                \centering
+                \begin{tabularx}{\columnwidth}{l X}
+                    \toprule
+                    Kategorie & Beschreibung \\
+                    \midrule
+                    Grundlast & dauerhaft vorhandene Residuallast \\
+                    Regellast & zu regelnde (Residual-) Last über der Grundlast\\
+                    \bottomrule
+                \end{tabularx}
+            \end{table}
+            Residuallast = Gesamtlast - Erneuerbare Erzeugung \\
+
+        \end{itemize}
+    }
