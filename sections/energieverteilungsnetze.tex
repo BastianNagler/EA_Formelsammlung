@@ -5,12 +5,6 @@
 
 
 \subsubsection{Spannungen und Str\"ome in DS}
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=0.95\columnwidth]{./Bilder/Energieverteilungsnetze/DS_Allgemein.png}
-        \includegraphics[width=0.95\columnwidth]{./Bilder/Energieverteilungsnetze/Zeigerdiagramme.png}
-    \end{figure}
-
     \underline{Leiter-Erde-Spannung \(U_{LE}=230V\)}
     \begin{flalign*}
         U_{LE} &= U_Y &\\
@@ -33,26 +27,28 @@
         \underline{I}_N &= \underline{I}_{L1} + \underline{I}_{L2} + \underline{I}_{L3} = 0 &
     \end{flalign*}
 
+    \begin{table}[H]
+        \begin{tabular}{l l l}
+            \toprule
+            \textbf{Stranggröße} & \textbf{Stern} & \textbf{Dreieck} \\
+            \midrule
+            Spannung & \(U_{LE} = \frac{U_{LL}}{\sqrt{3}}\) & \(U_{LL}\) \\
+            Strom & \(I_L\) & \(I_L = \sqrt{3} \cdot I_{str}\) \\
+        \end{tabular}
+    \end{table}
+
 \subsubsection{Einphasiges ESB (symmetrisch)}
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=0.7\columnwidth]{./Bilder/Energieverteilungsnetze/einphasiges_ESB.png}
-    \end{figure}
+    Es werden die Leiter-Erde-Spannungen \(U_{LE}\) verwendet. Die Ströme sind die Strangströme \(I_{str}\).
     Im einphasigen ESB ist aufgrund der symmetrischen Belastung (\(I_N = 0\)) der Neutralleiter nicht notwendig.
 
-    Um eine Dreieckschaltung so darzustellen, wird eine Dreieck-Stern-Umwandlung durchgeführt.
-
+    Um eine Dreieckschaltung so darzustellen, wird eine Dreieck-Stern-Umwandlung durchgeführt. \\
     \textbf{Dreieck-Stern-Umwandlung}
-    \begin{flalign*}
-        \underline{Z}_1 &= \frac{\underline{Z}_{12} \cdot \underline{Z}_{31}}{\underline{Z}_{12} + \underline{Z}_{23} + \underline{Z}_{31}} &\\
-        \underline{Z}_2 &= \frac{\underline{Z}_{12} \cdot \underline{Z}_{23}}{\underline{Z}_{12} + \underline{Z}_{23} + \underline{Z}_{31}} &\\
-        \underline{Z}_3 &= \frac{\underline{Z}_{23} \cdot \underline{Z}_{31}}{\underline{Z}_{12} + \underline{Z}_{23} + \underline{Z}_{31}} &
-    \end{flalign*}
-
-    \textbf{Dreieck-Stern-Umwandlung (symmetrisch)}
-    \begin{flalign*}
-        Z_Y &= \frac{Z_\Delta}{3} &
-    \end{flalign*}
+    \begin{align*}
+        \underline{Z}_1 &= \frac{\underline{Z}_{12} \cdot \underline{Z}_{31}}{\underline{Z}_{12} + \underline{Z}_{23} + \underline{Z}_{31}} \\
+        \underline{Z}_2 &= \frac{\underline{Z}_{12} \cdot \underline{Z}_{23}}{\underline{Z}_{12} + \underline{Z}_{23} + \underline{Z}_{31}} \\
+        \underline{Z}_3 &= \frac{\underline{Z}_{23} \cdot \underline{Z}_{31}}{\underline{Z}_{12} + \underline{Z}_{23} + \underline{Z}_{31}} \\
+        \text{für symm. Bel: } Z_Y &= \frac{Z_\Delta}{3} &
+    \end{align*}
 
 \subsubsection{Leistungen in DS}
 
@@ -75,16 +71,12 @@
 
     \underline{Wirkleistung P [W]: Realteil}
     \begin{flalign*}
-    P   &= S \cdot \cos \varphi
-        = 3 \cdot U_{LE} \cdot I_L \cdot \cos \varphi &\\
-        &= \sqrt{3} \cdot U_{LL} \cdot I_L \cdot \cos \varphi &
+        P   &= S \cdot \cos \varphi
     \end{flalign*}
 
     \underline{Blindleistung Q [var]: Imaginärteil}
     \begin{flalign*}
-    Q &= S \cdot \sin \varphi = P \cdot \tan \varphi
-        = 3 \cdot U_{LE} \cdot I_L \cdot \sin \varphi &\\
-        &= \sqrt{3} \cdot U_{LL} \cdot I_L \cdot \sin \varphi
+        Q &= S \cdot \sin \varphi = P \cdot \tan \varphi
     \end{flalign*}
     \(Q > 0\) : induktiv \qquad \(Q < 0\) : kapazitiv
 
@@ -101,34 +93,23 @@
 
 
 \subsection{Klassifizierung und Struktur}
-\subsubsection{Spannungsbezeichnungen}
+    \subsubsection{Spannungsbezeichnungen}
 
-\textcolor{red}{\textbf{Alle Spannungswerte sind als Leiter-Leiter-Spannungen angegeben, da dies die höchste auftretende ist.}}
+        \textcolor{red}{\textbf{Alle Spannungswerte sind als Leiter-Leiter-Spannungen angegeben, da dies die höchste auftretende ist.}}
 
-\begin{itemize}
-    \item \textbf{Netznennspannung \(U_n\): } \\
-        dient zur Kennzeichnung, meist gleich der Betriebsspannung
-    
-    \item \textbf{Betriebsspannung \(U_b\): } \\
-        tatsächliche momentane Spannung, abhängig von der Belastung
+        \begin{itemize}
+            \item \textbf{Netznennspannung \(U_n\): } \\
+                dient zur Kennzeichnung, meist gleich der Betriebsspannung
+            
+            \item \textbf{Betriebsspannung \(U_b\): } \\
+                tatsächliche momentane Spannung, abhängig von der Belastung
 
-    \item \textbf{Höchste Spannung für Betriebsmittel \(U_m\): } \\
-        maximale Spannung, die ein Betriebsmittel aushalten muss
+            \item \textbf{Höchste Spannung für Betriebsmittel \(U_m\): } \\
+                maximale Spannung, die ein Betriebsmittel aushalten muss
 
-    \item \textbf{Bemessungsspannung eines Betriebsmittel \(U_r\): } \\
-        Spannung, für die ein Betriebsmittel ausgelegt ist 
-        \begin{flalign*}
-            U_r \ge U_m
-        \end{flalign*}
-
-\end{itemize}
-
-\subsubsection{Netztopologie}
-
-\begin{itemize}
-    \item \textbf{Offene Netze: } einseitig gespeiste Leitung
-    \item \textbf{Strahlnetz: } einseitig gespeiste Leitung mit Verzweigungen
-    \item \textbf{Zweiseitig gespeiste Leitung}
-    \item \textbf{Ringnetz: } einseitig gespeiste Ringleitung
-    \item \textbf{geschlossenes Netz: } Maschennetz
-\end{itemize}
+            \item \textbf{Bemessungsspannung eines Betriebsmittel \(U_r\): } \\
+                Spannung, für die ein Betriebsmittel ausgelegt ist 
+                \begin{flalign*}
+                    U_r \ge U_m
+                \end{flalign*}
+        \end{itemize}

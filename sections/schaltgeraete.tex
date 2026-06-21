@@ -1,0 +1,31 @@
+\section{Schaltger\"ate und Schaltanlagen}
+\subsection{Schaltger\"ate}
+
+    \subsubsection{Lichtbogen}
+        \begin{itemize}
+            \item entsteht wenn anliegende Spannung größer als die Zündspannung \(U_Z\) ist, 
+                bleibt allerdings bestehen solange die Spannung größer der Brennspannung \(U_B\) ist. (\(U_B < U_Z\))
+            \item Gefahr des Kontaktabbrands und der Verschmelzunh der Kontakte.
+            \item Da Lichtbogen durch Ionisation entsteht, ist die Umgebung ausschlaggebend für die Zündspannung \(U_Z\). 
+            \item Lichtbogen wird ``kalt'' durch:
+                \begin{itemize}
+                    \item DC: Kühlung
+                    \item AC: Nulldurchgang des Stroms
+                \end{itemize}
+        \end{itemize}
+        
+        \textbf{Ayrton-Gleichung}
+        \begin{align*}
+            U_B = a + b \cdot l + \frac{c + d \cdot l}{I}
+        \end{align*}
+        \(a, b, c, d\) : empirische Konstanten. Für Kupfer:
+        \begin{table}[H]
+            \begin{tabular}{l l}
+                \toprule
+                \(a\) & 15 V \\
+                \(b\) & 10 V/cm \\
+                \(c\) & 10 VA \\
+                \(d\) & 50 VA/cm \\
+                \bottomrule
+            \end{tabular}
+        \end{table}

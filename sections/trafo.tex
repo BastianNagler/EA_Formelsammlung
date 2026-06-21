@@ -1,0 +1,230 @@
+\section{Trafo}
+    OS:  Oberspannungsseite (Primär)\\
+    US:  Unterspannungsseite (Sekundär)
+
+    Index 1: $U_1:$ auf OS\\
+    Index 2: $U'_2 = U_2 \cdot \ddot{u}:$ auf US
+
+\subsection{Kühlung}
+    \textbf{Kühlungsarten}
+    \begin{table}[H]
+        \begin{tabular}{c|c|c}
+            \textbf{Abkürzung} & \textbf{innere Kühlung} & \textbf{äußere Kühlung}\\
+            \hline
+            ONAN & Oil Natural & Air Natural\\
+            ONAF & Oil Natural & Air Forced \\
+            OFAF & Oil Forced & Air Forced\\
+            OFWF & Oil Forced & Water Forced\\
+            ANAN & Air Natural & Air Natural\\
+            ANAF & Air Natural & Air Forced\\
+        \end{tabular}
+    \end{table}
+    
+\subsection{Grundgleichungen, idealer Trafo}
+    \begin{itemize}
+
+        \item[]{\textbf{Windungsspannung}}
+            \begin{align*}
+                \frac{U_{1}}{N_{1}} &= \frac{U_{2}}{N_{2}} = U_W = \frac{2 \pi}{\sqrt{2}} \cdot f \cdot \hat{B} \cdot A_{Fe} \\
+                \text{es gilt: } U_{W1} &= U_{W2}
+            \end{align*}
+
+        \item[]{\textbf{Induktionsspannung, Effektivwert}}
+            \begin{align*}
+                U_{ieff} &= \frac{2 \pi}{\sqrt{2}} \cdot f \cdot N \cdot A_{Fe} \cdot \hat{B} \\
+                \text{mit } \hat{B} &= \hat{B}_{zulaessig} = 1,7 \ldots 1,8 \mathrm{T} 
+            \end{align*}
+
+        \item[] \textbf{Transformation}
+            \begin{table}[H]
+                \begin{tabular}{c c c}
+                    \toprule
+                    \textbf{Spannung} & \textbf{Strom} & \textbf{Impedanz} \\
+                    \midrule
+                    $\dfrac{U_{1}}{U_{2}} = \dfrac{N_{1}}{N_{2}} = \ddot{u}$ & $\dfrac{I_{1}}{I_{2}} = \dfrac{N_{1}}{N_{2}} = \dfrac{1}{\ddot{u}}$ & $R'_{2} = \ddot{u}^2 \cdot R_{2}$\\
+                    $\underline{U}'_{2}  = \ddot{u} \cdot \underline{U}_{2}$ & $\underline{I}'_{2} = \underline{I}_{2} \cdot \dfrac{1}{\ddot{u}}$ & $Z_1 = \ddot{u}^2 \cdot Z_2$\\
+                    \bottomrule
+                \end{tabular}
+            \end{table}
+
+        \item[]{\textbf{Durchgangsleistung}}
+            \begin{equation*}
+                S_{1} = S_{2} = S_{D}
+            \end{equation*}
+
+        \item[] {\textbf{Bemessungsscheinleistung [VA]}}
+            \begin{align*}
+                S_{rT} &= 3 \cdot U_{rT1,LE} \cdot I_{rT1} = 3 \cdot U_{rT2,LE} \cdot I_{rT2} \\
+                       &= 3 \cdot 4,44 \cdot N_1 \cdot f \cdot \hat{B}_r \cdot A_{Fe} \cdot I_{rT1} \\
+            \end{align*}
+\end{itemize}
+
+\subsection{Ersatzschaltbild (ESB)}
+    \textcolor{green}{$R_{T}$ wird meist vernachlässigt}
+
+    \begin{gather*}
+        R_{T} + jX_{T} = (R_1+R_2')+j(X_{1\sigma}+X'_{2\sigma})\\
+        Z_{T} = R_{T} + jX_{T}\\
+        U_1 = (R_T + jX_T) \cdot I_1 + U'_2
+    \end{gather*}
+
+\subsection{Leerlaufmessung}
+    \textbf{Vernachlässigung Serienelemente, Betrachtung Parallelelemente} (\(R_{Fe}, X_h\)) \\
+    Anlegen der primärseitigen Nennspannung \(U_{rT1}\) ergibt Messung von: 
+    \(U_{20}, I_{10}, \varphi_0, P_{0T}\) \\
+    Es gilt: \(I_2 = 0 \Rightarrow I'_2 = 0\)
+
+    \begin{align*}
+        U_{10} &= \frac{U_{rT1}}{\sqrt{3}} \\
+        I_{Fe} &= I_{10} \cdot \cos(\varphi_0) \qquad I_{Fe} = I_{\mu} \cdot \sin(\varphi_0) \\
+        R_{Fe} &\approx \frac{U_{rT1}}{\sqrt{3} \cdot I_{10} \cdot \cos(\varphi_0)} \qquad X_{1h} \approx \frac{U_{rT1}}{\sqrt{3} \cdot I_{10} \cdot \sin(\varphi_0)} \\
+        \ddot{u} &\approx \frac{U_{rT1}}{\sqrt{3} \cdot U_{20}} \\
+        P_{0T} &= 3 \cdot \frac{U_{10}^2}{R_{Fe}} = \sqrt{3} \cdot U_{rT1} \cdot I_{10} \cos(\varphi_0) \\
+        \Aboxed{R_{Fe} &= \frac{S_{rT}}{P_0T} \cdot \frac{U_{rT}^2}{S_{rT}}} \qquad \text{mit Bezugsimpedanz } Z_{Bez} = \frac{U_{rT}^2}{S_{rT}}
+    \end{align*}
+
+    Die Eisenverluste sind Lastunabhängig, aber spannungsabhängig. Die Verlustleistung beläuft sich auf:
+
+    \begin{align*}
+        P_{V,Fe} = \frac{U_{T1}^2}{R_{Fe}}
+    \end{align*}
+
+    Der Leerlaufstrom ist das Verhältnis des Stromes bei Leerlauf zum Nennbetrieb
+    
+    \begin{align*}
+        i_0 = \frac{I_{10}}{I_{rT1}} = 0,2 \cdot 2 \%
+    \end{align*}
+
+\subsection{Kurzschlussmessung}
+    \textbf{Vernachlässigung Parallelelemente, Betrachtung Serienelemente} (\(R_T, X_T\)) \\
+    Anlegen des Bemessungsstroms \(I_{rT1}\) bzw. \(I_{rT2}\), abhängig von Seitenwahl der Messung (meist OS kurzgeschlossen).
+    \begin{align*}
+        \underline{U}_{k1} = \underline{U}_{k1R} + j\underline{U}_{k1X} \quad \text{bzw.} \quad \underline{U}_{k2} = \underline{U}_{k2R} + j\underline{U}_{k2X}
+    \end{align*}
+
+    Meistens wird relative Kurzschlussspannung \(\underbar{u}_k\) angegeben:
+
+    \begin{align*}
+        &\underline{u}_{k1} = \frac{\underline{U}_{k1}}{U_{rT1} / \sqrt{3}} \quad \text{bzw.} \quad \underline{u}_{k2} = \frac{\underline{U}_{k2}}{U_{rT2} / \sqrt{3}} = \frac{\underline{U}_{k1} \cdot \ddot{u}}{U_{rT2} \cdot \ddot{u} / \sqrt{3}} \\
+        \Rightarrow &\boxed{\underline{u}_{k1} = \underline{u}_{k2} = u_{kR} + ju_{kX}}
+    \end{align*}
+
+    \subsubsection{Betriebskonstanten}
+    \begin{align*}
+        \underline{Z}_T &= \frac{\underline{u}_k}{100 \%} \cdot \frac{U_{rT}^2}{S_{rT}} = \frac{\underline{u}_k}{100 \%} \cdot Z_{BezT} \\
+        R_T &= \frac{u_{kR}}{100 \%} \cdot \frac{U_{rT}^2}{S_{rT}} = \frac{u_{kR}}{100 \%} \cdot Z_{BezT} \\
+        R_T &= \frac{P_{kT}}{S_{rT}} \cdot \frac{U_{rT}^2}{S_{rT}} \\
+        X_T &= \sqrt{Z_T^2 - R_T^2} 
+    \end{align*}
+
+    Zur Begrenzung des Kurzschlossstromes sollen bestimmte Grenzen für \(u_k\) nicht \textbf{unter}schritten werden. 
+    \begin{table}[H]
+        \begin{tabular}{l r r}
+            \toprule
+            \textbf{Trafotyp} & \textbf{uk in \%} & \textbf{ukr in \%} \\
+            \midrule
+            Ortsnetztrafo (ONT) 20 kV & 3,5..8 & 2,1..2,8 \\
+            Netztrafos (NT) 110 kV & 10..12 & 1,0..1,2 \\
+            Netzkuppeltrafos (NKT) 220 kV & 11..14 & 0,72..0,86 \\
+            Netzkuppeltrafos (NKT) 380 kV & 15..17 & 0,54..0.66 \\ 
+            \bottomrule
+        \end{tabular}
+    \end{table} 
+    \vspace{-24pt}
+    \begin{align*}
+        I_K = \frac{U_{rT} / \sqrt{3}}{Z_T} = \frac{U_{rT} / \sqrt{3}}{u_k \cdot (U_{rT}^2 / s_{rT}) = \frac{1}{u_k} \cdot I_{rT}}
+    \end{align*}
+    Der Kurzschlussstrom kann durch die Dimensionierung des Luftspaltes und damit der Streuung (\(X_T\)) angepasst werden.
+
+\subsection{Belasteter Transformator}
+    Lastwiderstand: \(\underline{Z}_L\)
+    \begin{gather*}
+        \underline{I}_{10} = \underline{I}_{Fe} + \underline{I}_{\mu} \qquad \underline{I}_\mu = \frac{\underline{U}_h}{jX_h} \qquad \underline{I}_{Fe} = \frac{\underline{U}_h}{R_{Fe}} \\
+        \underline{I}_1 = \underline{I}_{10} + \underline{I'}_2 \\
+        \underline{U}_h = \underline{U}_1 - \underline{Z}_1 \cdot \underline{I}_1 \qquad \underline{U'}_2 = \underline{U}_h + \underline{Z'}_2 \cdot \underline{I'}_2
+    \end{gather*}
+    mit \(\underline{I}_1, \underline{I}_2 \gg \underline{I}_{10} \quad \Rightarrow \quad \underline{I'}_2 \approx -\underline{I}_1\)
+
+\subsection{Verluste im Trafo}
+    \subsubsection{Verlustleistung}
+        Verluste im Trafo:
+        \begin{itemize}
+            \item Lastunabhängige Hilfsmaschinen: z.B. Ölpumpe
+            \item Lastabhängige Hilfsmaschinen: z.B. Lüfter
+            \item Hystereseverluste
+            \item Wirbelstromverluste
+            \item Stromwärmeverluste (ungleiche Stromverteilung im Leiter durch Influenz)
+            \item Zusatzverluste: Wirbelströme in passiver Bauteilen
+        \end{itemize}
+
+        \begin{align*}
+            P_V &= P_{V,W} + P_{V,H} + P_{V,Cu} = P_{V,Fe} + P_{V,Cu} \\
+                &\text{im Nennbetrieb: } P_{V,Fe} = P_{0T} \quad P_{V,Cu} = P_{kT}\\
+            \Rightarrow P_{V,N} &= P_{0T} + P_{kT}
+        \end{align*}
+        Für beliebigen Lastpunkt gilt:
+        \begin{align*}
+            \boxed{P_V = P_{0T} \left(\frac{U}{U_{rT}}\right)^2 + P_{kT} \left(\frac{I}{I_{rT}}\right)^2}
+        \end{align*}
+
+    \subsubsection{Wirkungsgrad}
+        \begin{align*}
+            \eta &= \frac{P_{ab}}{P_{zu}} = \frac{P_{ab}}{P_{ab} + P_V} = \frac{S \cdot \cos \varphi_2}{S \cdot \cos \varphi_2 + P_{V,Fe} + P_{V,Cu}} \\
+            &\text{im Nennbetrieb: } \eta_N = \frac{P_{ab,N}}{P_{zu,N}} = \frac{S_{rT} \cdot \cos \varphi_2}{S_{rT} \cdot \cos \varphi_2 + P_{0T} + P_{kT}}
+        \end{align*}
+
+        Für den Betrieb bei Bemessungsspannung gilt:
+        \begin{align*}
+            P_V = P_0 + a^2 \cdot P_k \qquad \text{mit } a=\frac{S}{S_{rT}} = \frac{I}{I_{rT}}
+        \end{align*}
+
+        Somit gilt für den Wirkungsgrad:
+        \begin{align*}
+            \boxed{
+                \eta = \frac{a \cdot S_{rT} \cdot \cos \varphi}{ a \cdot S_{rT} \cdot \cos \varphi + P_{0T} + a^2 \cdot P_{kT} } \quad \text{mit } a=\frac{S}{S_{rT}} = \frac{I}{I_{rT}}
+            }
+        \end{align*}
+
+        \(\eta_{max}\) tritt auf, wenn \(P_{V,Fe} = P_{V,Cu}\)
+
+\subsection{Schaltgruppen}
+    \begin{table}[H]
+        \begin{tabular}{l l c}
+            \toprule
+            OS-Wicklung & Stern                         & Y     \\
+                        & Stern mit Sternpunktleiter    & YN    \\
+                        & Dreieck                       & D     \\
+            \midrule
+            US-Wicklung & Stern                         & y     \\
+                        & Stern mit Sternpunktleiter    & yn    \\
+                        & Dreieck                       & d     \\
+                        & Zickzack                      & z     \\
+                        & Sparwicklung                  & a     \\
+            \bottomrule
+        \end{tabular}
+    \end{table}
+
+    \textbf{Schaltgruppenzahl}\\
+    Schaltgruppenzahl gibt Phasenverschiebung zwischen OS und US in Vielfachen von 30° an.\\
+    \\
+    \textbf{Windungsübersetzungsverhältnis}\\
+    Nennübersetzungsverhältnis \(\ddot{u} = \frac{U_{rT1}}{U_{rT2}}\) \\
+    Wicklungsübersetzungsverhältnis \(\ddot{u}_W = \frac{U_{1,Strang}}{U_{2,Strang}} = \frac{N_1}{N_2}\)
+
+    \begin{table}[H]
+        \begin{tabular}{r *{6}{c}}
+            \toprule
+            Schaltgruppe & Dd & Yy & Dy & Yd & Dz & Yz \\
+            \midrule
+            ü & \(\frac{N_1}{N_2}\) & \(\frac{N_1}{N_2}\) & \(\frac{N_1}{\sqrt{3} \cdot N_2}\) & \(\frac{\sqrt{3} \cdot N_1}{N_2}\) & \(\frac{2 \cdot N_1}{3 \cdot N_2}\) & \(\frac{2 \cdot N_1}{\sqrt{3} \cdot N_2}\) \\ 
+            \bottomrule
+        \end{tabular}
+    \end{table}
+
+\subsection{Parallelbetrieb von 2 Trafos}
+    \begin{enumerate}
+        \item Schaltgruppe mit gleicher Kennzahl
+        \item Gleiches Übersetzungsverhältnis
+        \item annähernd gleiche Kurzschlussspannung (max. diff. 10\%)
+        \item Bemessungsscheinleistung kleiner als 3:1
+    \end{enumerate}
