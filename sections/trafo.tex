@@ -7,6 +7,7 @@
 
 \subsection{Kühlung}
     \textbf{Kühlungsarten}
+    \vspace{-6pt}
     \begin{table}[H]
         \begin{tabular}{c|c|c}
             \textbf{Abkürzung} & \textbf{innere Kühlung} & \textbf{äußere Kühlung}\\
@@ -29,14 +30,16 @@
                 \text{es gilt: } U_{W1} &= U_{W2}
             \end{align*}
 
-        \item[]{\textbf{Induktionsspannung, Effektivwert}}
+        \item[]{\textbf{Induktionsspannung U, Kerninduktion B}}
             \begin{align*}
-                U_{ieff} &= \frac{2 \pi}{\sqrt{2}} \cdot f \cdot N \cdot A_{Fe} \cdot \hat{B} \\
-                \text{mit } \hat{B} &= \hat{B}_{zulaessig} = 1,7 \ldots 1,8 \mathrm{T} 
+                U_{i,LE} &= \frac{2 \pi}{\sqrt{2}} \cdot f \cdot N \cdot A_{Fe} \cdot \hat{B} \\
+                \text{mit } \hat{B} &\approx \hat{B}_{zulaessig} = 1,7 \ldots 1,8 \mathrm{T} 
             \end{align*}
 
         \item[] \textbf{Transformation}
+            \vspace{-6pt}
             \begin{table}[H]
+                \centering
                 \begin{tabular}{c c c}
                     \toprule
                     \textbf{Spannung} & \textbf{Strom} & \textbf{Impedanz} \\
@@ -74,26 +77,30 @@
     \(U_{20}, I_{10}, \varphi_0, P_{0T}\) \\
     Es gilt: \(I_2 = 0 \Rightarrow I'_2 = 0\)
 
-    \begin{align*}
-        U_{10} &= \frac{U_{rT1}}{\sqrt{3}} \\
-        I_{Fe} &= I_{10} \cdot \cos(\varphi_0) \qquad I_{Fe} = I_{\mu} \cdot \sin(\varphi_0) \\
-        R_{Fe} &\approx \frac{U_{rT1}}{\sqrt{3} \cdot I_{10} \cdot \cos(\varphi_0)} \qquad X_{1h} \approx \frac{U_{rT1}}{\sqrt{3} \cdot I_{10} \cdot \sin(\varphi_0)} \\
-        \ddot{u} &\approx \frac{U_{rT1}}{\sqrt{3} \cdot U_{20}} \\
-        P_{0T} &= 3 \cdot \frac{U_{10}^2}{R_{Fe}} = \sqrt{3} \cdot U_{rT1} \cdot I_{10} \cos(\varphi_0) \\
-        \Aboxed{R_{Fe} &= \frac{S_{rT}}{P_0T} \cdot \frac{U_{rT}^2}{S_{rT}}} \qquad \text{mit Bezugsimpedanz } Z_{Bez} = \frac{U_{rT}^2}{S_{rT}}
-    \end{align*}
+    \begin{gather*}
+        I_{Fe} = I_{10} \cdot \cos(\varphi_0) \qquad I_{\mu} = I_{10} \cdot \sin(\varphi_0) \\
+        R_{Fe} \approx \frac{U_{rT1}}{\sqrt{3} \cdot I_{10} \cdot \cos(\varphi_0)} \qquad X_{1h} \approx \frac{U_{rT1}}{\sqrt{3} \cdot I_{10} \cdot \sin(\varphi_0)} \\
+        P_{0T} = 3 \cdot \frac{U_{10}^2}{R_{Fe}} = \sqrt{3} \cdot U_{rT1} \cdot I_{10} \cos(\varphi_0) \\
+        \boxed{R_{Fe} = \frac{S_{rT}}{P_{0T}} \cdot \frac{U_{rT}^2}{S_{rT}}} \quad \text{mit Bezugsimpedanz } Z_{Bez} = \frac{U_{rT}^2}{S_{rT}}
+    \end{gather*}
 
     Die Eisenverluste sind Lastunabhängig, aber spannungsabhängig. Die Verlustleistung beläuft sich auf:
-
+    \vspace{-6pt}
     \begin{align*}
         P_{V,Fe} = \frac{U_{T1}^2}{R_{Fe}}
     \end{align*}
 
     Der Leerlaufstrom ist das Verhältnis des Stromes bei Leerlauf zum Nennbetrieb
-    
+    \vspace{-10pt}
     \begin{align*}
         i_0 = \frac{I_{10}}{I_{rT1}} = 0,2 \cdot 2 \%
     \end{align*}
+
+    \textbf{Umrechnung zwischen den Seiten: }
+    \begin{gather*}
+        \ddot{u} \approx \frac{U_{rT1}}{\sqrt{3} \cdot U_{20}} \qquad I_{10} = \frac{I_{20}}{\ddot{u}} \qquad P_{01} = P_{02} \\
+        Z_{p1} = \ddot{u}^2 Z_{p2} \qquad R_{Fe1} = \ddot{u}^2 R_{Fe2} \qquad X_{h1} = \ddot{u}^2 X_{h2}
+    \end{gather*}
 
 \subsection{Kurzschlussmessung}
     \textbf{Vernachlässigung Parallelelemente, Betrachtung Serienelemente} (\(R_T, X_T\)) \\
@@ -105,7 +112,7 @@
     Meistens wird relative Kurzschlussspannung \(\underbar{u}_k\) angegeben:
 
     \begin{align*}
-        &\underline{u}_{k1} = \frac{\underline{U}_{k1}}{U_{rT1} / \sqrt{3}} \quad \text{bzw.} \quad \underline{u}_{k2} = \frac{\underline{U}_{k2}}{U_{rT2} / \sqrt{3}} = \frac{\underline{U}_{k1} \cdot \ddot{u}}{U_{rT2} \cdot \ddot{u} / \sqrt{3}} \\
+        &\underline{u}_{k1} = \frac{\sqrt{3} \underline{U}_{k1,LE}}{U_{rT1}} \quad \text{bzw.} \quad \underline{u}_{k2} = \frac{\sqrt{3} \underline{U}_{k2,LE}}{U_{rT2}} = \frac{\sqrt{3} \underline{U}_{k1,LE} \cdot \ddot{u}}{U_{rT2} \cdot \ddot{u}} \\
         \Rightarrow &\boxed{\underline{u}_{k1} = \underline{u}_{k2} = u_{kR} + ju_{kX}}
     \end{align*}
 
@@ -117,7 +124,8 @@
         X_T &= \sqrt{Z_T^2 - R_T^2} 
     \end{align*}
 
-    Zur Begrenzung des Kurzschlossstromes sollen bestimmte Grenzen für \(u_k\) nicht \textbf{unter}schritten werden. 
+    Zur Begrenzung des Kurzschlossstromes sollen bestimmte Grenzen für \(u_k\) nicht \textbf{unter}schritten werden.
+    \vspace{-6pt} 
     \begin{table}[H]
         \begin{tabular}{l r r}
             \toprule
@@ -132,7 +140,7 @@
     \end{table} 
     \vspace{-24pt}
     \begin{align*}
-        I_K = \frac{U_{rT} / \sqrt{3}}{Z_T} = \frac{U_{rT} / \sqrt{3}}{u_k \cdot (U_{rT}^2 / s_{rT}) = \frac{1}{u_k} \cdot I_{rT}}
+        I_K = \frac{U_{rT} / \sqrt{3}}{Z_T} = \frac{U_{rT} / \sqrt{3}}{u_k \cdot (U_{rT}^2 / s_{rT}) } = \frac{1}{u_k} \cdot I_{rT}
     \end{align*}
     Der Kurzschlussstrom kann durch die Dimensionierung des Luftspaltes und damit der Streuung (\(X_T\)) angepasst werden.
 
@@ -156,7 +164,7 @@
             \item Stromwärmeverluste (ungleiche Stromverteilung im Leiter durch Influenz)
             \item Zusatzverluste: Wirbelströme in passiver Bauteilen
         \end{itemize}
-
+        \vspace{-10pt}
         \begin{align*}
             P_V &= P_{V,W} + P_{V,H} + P_{V,Cu} = P_{V,Fe} + P_{V,Cu} \\
                 &\text{im Nennbetrieb: } P_{V,Fe} = P_{0T} \quad P_{V,Cu} = P_{kT}\\
@@ -188,6 +196,7 @@
         \(\eta_{max}\) tritt auf, wenn \(P_{V,Fe} = P_{V,Cu}\)
 
 \subsection{Schaltgruppen}
+    \vspace{-6pt}
     \begin{table}[H]
         \begin{tabular}{l l c}
             \toprule
@@ -204,6 +213,30 @@
         \end{tabular}
     \end{table}
 
+    \textbf{Einsatz der Schaltgruppen}
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{c c}
+            \toprule
+            Schaltung & Vorteile \\
+            \midrule
+            y & Hohe Bem.-Spannung \\
+            d & Hohe Bem.-Strom, unsym. Ströme \\
+            z & stark unsym. Ströme \\
+            \bottomrule
+        \end{tabular}
+        \begin{tabular}{c c}
+            \toprule
+            Schaltgruppe & Einsatz \\
+            \midrule
+            Yy0 & Netzkuppeltrafos, HöS \textrightarrow HS \\
+            Yd5 & Maschinentrafo, Generator \textrightarrow Netz \\
+            Yzn5 & Ortsnetztrafo, MS \textrightarrow NS (stark unsym.) \\
+            Dyn5 & Ortsnetztrafo, MS \textrightarrow NS \\
+            \bottomrule
+        \end{tabular}
+    \end{table}
+
     \textbf{Schaltgruppenzahl}\\
     Schaltgruppenzahl gibt Phasenverschiebung zwischen OS und US in Vielfachen von 30° an.\\
     \\
@@ -211,6 +244,7 @@
     Nennübersetzungsverhältnis \(\ddot{u} = \frac{U_{rT1}}{U_{rT2}}\) \\
     Wicklungsübersetzungsverhältnis \(\ddot{u}_W = \frac{U_{1,Strang}}{U_{2,Strang}} = \frac{N_1}{N_2}\)
 
+    \vspace{-6pt}
     \begin{table}[H]
         \begin{tabular}{r *{6}{c}}
             \toprule
