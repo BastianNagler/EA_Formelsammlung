@@ -1,0 +1,81 @@
+\section{Leitungen}
+
+\subsection{Modell einer Leitung}
+    \begin{itemize}
+        \item Längselemente: \(R'_b\) \& \(jX'_b\) 
+        \item Parallelelemente: \(G'_b\) \& \(jB'_b\) (je Hälfte an Anfang und Ende der Leitung) 
+        \item Verlustleistung: \(R'_b\) (Lastabhängig) \& \(G'_b\) (Lastunabhängig)
+        \item Blindleistung: \(jL'_b\) (Lastabhängig) \& \(jB'_b\) (Lastunabhängig)
+    \end{itemize}
+
+\subsection{Kenngrößen}
+    \textbf{Verlustbehaftet: }
+    \begin{gather*}
+        \underline{\gamma} = \alpha + j \beta = \sqrt{(R'_b + jX'_b)(G'_b + jB'_b)} \\
+        \underline{Z}_W = Z_W e^{j\delta} = \sqrt{\frac{R'_b + jX'_b}{G'_b + jB'_b}} \\
+    \end{gather*}
+
+    \textbf{Verlustlos: }
+    \begin{gather*}
+        \underline{\gamma} = j \beta = \sqrt{X'_b \cdot B'_b} = j \omega \sqrt{L'_b \cdot C'_b} \\
+        Z_W = \sqrt{\frac{X'_b}{B'_b}} = \sqrt{\frac{L'_b}{C'_b}} 
+    \end{gather*}
+    Richtwerte: \(Z_W \approx \SI{400}{\ohm} \qquad \beta \approx \frac{\SI{6}{\degree}}{\SI{100}{\kilo\meter}}\) 
+
+\subsection{Natürliche Leistung}
+    gültig bei Leitung ohne Verlusten, wenn \(\mathbf{Q_L = Q_C}\)
+    \begin{gather*}
+        Q_L = 3 X_L I_L^2 \qquad Q_C = 3 B_L U_{LE}^2 \\
+        I_{nat} = \frac{U_{LE}}{Z_W} \qquad P_{nat} = 3 U_{LE} I_{nat} = \frac{U_{LL}^2}{Z_W} \\
+        Q_V = Q_L - Q_C = Q_C \cdot \left( \frac{Q_L}{Q_C} - 1 \right) \qquad \frac{Q_V}{Q_C} = \frac{S_{\ddot{u}}^2}{P_{nat}^2} - 1
+    \end{gather*}
+    \begin{itemize}
+        \item Belastung < \(P_{nat}\): Kapazitive Wirkung der Leitung
+        \item Belastung = \(P_{nat}\): Rein Ohmsches Verhalten \textrightarrow bei verlustloser Leitung überhaupt keine Wirkung
+        \item Belastung > \(P_{nat}\): Induktive Wirkung der Leitung
+    \end{itemize}
+
+\subsection{MS- und NS-Leitungen}
+    Vernachlässigung der Parallelelemente:
+    \begin{gather*}
+        \underline{I}_1 = \underline{I}_L = \underline{I}_2 \qquad \underline{U}_1 = d \underline{U} + \underline{U}_2 \\
+        d \underline{U} = \underline{Z}_L \cdot \underline{I}_L = (R'_b + jX'_b) \cdot l \cdot \underline{I}_L \\
+        \underline{Z}_L = R_L + jX_L \qquad \varphi_Z = \arctan \frac{X_L}{R_L} = \arctan \frac{X'_b}{R'_b} 
+    \end{gather*}
+
+\subsection{Kurze HS-/HöS-Freileitungen}
+    \(U_{LL} > \SI{100}{\kilo\volt}\) für \(l \le \SI{220}{\kilo\meter}\) \\
+    Vernachlässigung von \(G'_b\):
+    \begin{gather*}
+        \underline{I}_L = \underline{I}_2 + \underline{I}_{C2} \qquad \underline{I}_{C2} = j \frac{B_L}{2} \underline{U}_2 \\
+        \underline{U}_1 = \underline{U}_2 + (R_L + jX_L)(\underline{I}_2 + j\frac{B_L}{2} \underline{U}_2) \\
+        \underline{I}_1 = \underline{I}_2 + j \frac{B_L}{2} (\underline{U}_1 + \underline{U}_2)
+    \end{gather*}
+
+    \textbf{Sonderfall: Leerlauf}
+    \begin{gather*}
+        \underline{U}_1 = \underline{U}_2 \left( 1 - \frac{X_L B_L}{2} \right) \\
+        \underline{I}_1 = \underline{I}_{C1} + \underline{I}_{C2} = j \frac{B_L}{2} (\underline{U}_1 + \underline{U}_2) 
+    \end{gather*}
+
+    \textbf{Betrieb mit natürlicher Leistung}
+    \begin{gather*}
+        \underline{Z}_2 = R_2 = Z_W \Rightarrow \underline{I}_2 = \frac{\underline{U}_{2,LE}}{Z_W} = I_{nat} \\
+        S_1 = S_2 = P_1 = P_2 = P_{nat} \qquad |\underline{U}_1| = |\underline{U}_2| \qquad |\underline{I}_1| = |\underline{I}_2| \\
+        \underline{U}_1 = \underline{U}_2 \left(1 - \frac{B_L X_L}{2} + j \frac{X_L}{Z_W}\right) \\
+        \underline{I}_1 = \frac{\underline{U}_2}{Z_W} + j \frac{B_L}{2} \left(\underline{U}_1 + \underline{U}_2\right) \\
+        \underline{I}_1 = \frac{\underline{U}_2}{Z_W} + j \frac{B_L}{2} \underline{U}_2
+    \end{gather*}
+
+\subsection{HS-/HöS-Kabel}
+    ESB wie HS-/HöS-Freileitung, aber \(l_{grenz} \approx \SI{95}{\kilo\meter}\)
+    \begin{gather*}
+        Q_V = Q_L - Q_C = 3 X_L I_L^2 - 3 B_L U_{LE}^2 \qquad \text{aber } Q_{C,Kabel} \gg Q_{C,Freileitung}
+        Q'_V = 3 I_{Dauer}^2 X'_b - 3 U_{LE}^2 B'_b \\
+        S_{therm} = 3 U_{LE} I_{Dauer} \\
+        P_{max} = \sqrt{S_{therm}^2 - Q_V^2} = P_{max} = \sqrt{S_{therm}^2 - (Q'_V \cdot l)^2} \\
+        l_{max} = \frac{S_{therm}}{Q'_V}
+    \end{gather*}
+    Kabel sind in ihrer Länge begrenzt, bei der sie noch Wirkleistung übertragen können. \\
+    \(l_{max,\text{VPE}} \approx \SI{220}{\kilo\meter} \qquad l_{max,\text{Öl}} \approx \SI{88}{\kilo\meter}\) \\
+    Außerdem ist ein Betrieb bei natürlicher Leistung nicht möglich. \textrightarrow HGÜ-Leitungen

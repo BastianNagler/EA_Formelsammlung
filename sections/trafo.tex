@@ -2,8 +2,8 @@
     OS:  Oberspannungsseite (Primär)\\
     US:  Unterspannungsseite (Sekundär)
 
-    Index 1: $U_1:$ auf OS\\
-    Index 2: $U'_2 = U_2 \cdot \ddot{u}:$ auf US
+    Index 1: \(U_1:\) auf OS\\
+    Index 2: \(U'_2 = U_2 \cdot \ddot{u}:\) auf US
 
 \subsection{Kühlung}
     \textbf{Kühlungsarten}
@@ -33,7 +33,7 @@
         \item[]{\textbf{Induktionsspannung U, Kerninduktion B}}
             \begin{align*}
                 U_{i,LE} &= \frac{2 \pi}{\sqrt{2}} \cdot f \cdot N \cdot A_{Fe} \cdot \hat{B} \\
-                \text{mit } \hat{B} &\approx \hat{B}_{zulaessig} = 1,7 \ldots 1,8 \mathrm{T} 
+                \text{mit } \hat{B} &\approx \hat{B}_{zulaessig} = \SIrange{1.7}{1.8}{\tesla} 
             \end{align*}
 
         \item[] \textbf{Transformation}
@@ -44,8 +44,8 @@
                     \toprule
                     \textbf{Spannung} & \textbf{Strom} & \textbf{Impedanz} \\
                     \midrule
-                    $\dfrac{U_{1}}{U_{2}} = \dfrac{N_{1}}{N_{2}} = \ddot{u}$ & $\dfrac{I_{1}}{I_{2}} = \dfrac{N_{1}}{N_{2}} = \dfrac{1}{\ddot{u}}$ & $R'_{2} = \ddot{u}^2 \cdot R_{2}$\\
-                    $\underline{U}'_{2}  = \ddot{u} \cdot \underline{U}_{2}$ & $\underline{I}'_{2} = \underline{I}_{2} \cdot \dfrac{1}{\ddot{u}}$ & $Z_1 = \ddot{u}^2 \cdot Z_2$\\
+                    \(\dfrac{U_{1}}{U_{2}} = \dfrac{N_{1}}{N_{2}} = \ddot{u}\) & \(\dfrac{I_{1}}{I_{2}} = \dfrac{N_{1}}{N_{2}} = \dfrac{1}{\ddot{u}}\) & \(R'_{2} = \ddot{u}^2 \cdot R_{2}\)\\
+                    \(\underline{U}'_{2}  = \ddot{u} \cdot \underline{U}_{2}\) & \(\underline{I}'_{2} = \underline{I}_{2} \cdot \dfrac{1}{\ddot{u}}\) & \(Z_1 = \ddot{u}^2 \cdot Z_2\)\\
                     \bottomrule
                 \end{tabular}
             \end{table}
@@ -63,7 +63,7 @@
 \end{itemize}
 
 \subsection{Ersatzschaltbild (ESB)}
-    \textcolor{green}{$R_{T}$ wird meist vernachlässigt}
+    \textcolor{green}{\(R_{T}\) wird meist vernachlässigt}
 
     \begin{gather*}
         R_{T} + jX_{T} = (R_1+R_2')+j(X_{1\sigma}+X'_{2\sigma})\\
@@ -93,7 +93,7 @@
     Der Leerlaufstrom ist das Verhältnis des Stromes bei Leerlauf zum Nennbetrieb
     \vspace{-10pt}
     \begin{align*}
-        i_0 = \frac{I_{10}}{I_{rT1}} = 0,2 \cdot 2 \%
+        i_0 = \frac{I_{10}}{I_{rT1}} = \SIrange{0.2}{2}{\percent}
     \end{align*}
 
     \textbf{Umrechnung zwischen den Seiten: }
@@ -109,7 +109,7 @@
         \underline{U}_{k1} = \underline{U}_{k1R} + j\underline{U}_{k1X} \quad \text{bzw.} \quad \underline{U}_{k2} = \underline{U}_{k2R} + j\underline{U}_{k2X}
     \end{align*}
 
-    Meistens wird relative Kurzschlussspannung \(\underbar{u}_k\) angegeben:
+    Meistens wird relative Kurzschlussspannung \(\underline{u}_k\) angegeben:
 
     \begin{align*}
         &\underline{u}_{k1} = \frac{\sqrt{3} \underline{U}_{k1,LE}}{U_{rT1}} \quad \text{bzw.} \quad \underline{u}_{k2} = \frac{\sqrt{3} \underline{U}_{k2,LE}}{U_{rT2}} = \frac{\sqrt{3} \underline{U}_{k1,LE} \cdot \ddot{u}}{U_{rT2} \cdot \ddot{u}} \\
@@ -124,23 +124,23 @@
         X_T &= \sqrt{Z_T^2 - R_T^2} 
     \end{align*}
 
-    Zur Begrenzung des Kurzschlossstromes sollen bestimmte Grenzen für \(u_k\) nicht \textbf{unter}schritten werden.
+    Zur Begrenzung des Kurzschlussstromes sollen bestimmte Grenzen für \(u_k\) nicht \textbf{unter}schritten werden.
     \vspace{-6pt} 
     \begin{table}[H]
         \begin{tabular}{l r r}
             \toprule
             \textbf{Trafotyp} & \textbf{uk in \%} & \textbf{ukr in \%} \\
             \midrule
-            Ortsnetztrafo (ONT) 20 kV & 3,5..8 & 2,1..2,8 \\
-            Netztrafos (NT) 110 kV & 10..12 & 1,0..1,2 \\
-            Netzkuppeltrafos (NKT) 220 kV & 11..14 & 0,72..0,86 \\
-            Netzkuppeltrafos (NKT) 380 kV & 15..17 & 0,54..0.66 \\ 
+            Ortsnetztrafo (ONT) \SI{20}{\kilo\volt} & \numrange{3.5}{8} & \numrange{2.1}{2.8} \\
+            Netztrafos (NT) \SI{110}{\kilo\volt} & \numrange{10}{12} & \numrange{1.0}{1.2} \\
+            Netzkuppeltrafos (NKT) \SI{220}{\kilo\volt} & \numrange{11}{14} & \numrange{0.72}{0.86} \\
+            Netzkuppeltrafos (NKT) \SI{380}{\kilo\volt} & \numrange{15}{17} & \numrange{0.54}{0.66} \\ 
             \bottomrule
         \end{tabular}
     \end{table} 
     \vspace{-24pt}
     \begin{align*}
-        I_K = \frac{U_{rT} / \sqrt{3}}{Z_T} = \frac{U_{rT} / \sqrt{3}}{u_k \cdot (U_{rT}^2 / s_{rT}) } = \frac{1}{u_k} \cdot I_{rT}
+        I_K = \frac{U_{rT} / \sqrt{3}}{Z_T} = \frac{U_{rT} / \sqrt{3}}{\frac{u_k}{\SI{100}{\percent}} \cdot \frac{U_{rT}^2}{S_{rT}}} = \frac{\SI{100}{\percent}}{u_k} \cdot I_{rT}
     \end{align*}
     Der Kurzschlussstrom kann durch die Dimensionierung des Luftspaltes und damit der Streuung (\(X_T\)) angepasst werden.
 
@@ -149,7 +149,7 @@
     \begin{gather*}
         \underline{I}_{10} = \underline{I}_{Fe} + \underline{I}_{\mu} \qquad \underline{I}_\mu = \frac{\underline{U}_h}{jX_h} \qquad \underline{I}_{Fe} = \frac{\underline{U}_h}{R_{Fe}} \\
         \underline{I}_1 = \underline{I}_{10} + \underline{I'}_2 \\
-        \underline{U}_h = \underline{U}_1 - \underline{Z}_1 \cdot \underline{I}_1 \qquad \underline{U'}_2 = \underline{U}_h + \underline{Z'}_2 \cdot \underline{I'}_2
+        \underline{U}_h = \underline{U}_1 - \underline{Z}_1 \cdot \underline{I}_1 \qquad \underline{U'}_2 = \underline{U}_h - \underline{Z'}_2 \cdot \underline{I'}_2
     \end{gather*}
     mit \(\underline{I}_1, \underline{I}_2 \gg \underline{I}_{10} \quad \Rightarrow \quad \underline{I'}_2 \approx -\underline{I}_1\)
 
@@ -161,7 +161,7 @@
             \item Lastabhängige Hilfsmaschinen: z.B. Lüfter
             \item Hystereseverluste
             \item Wirbelstromverluste
-            \item Stromwärmeverluste (ungleiche Stromverteilung im Leiter durch Influenz)
+            \item Stromwärmeverluste (ungleiche Stromverteilung im Leiter durch Proximity-Effekt)
             \item Zusatzverluste: Wirbelströme in passiver Bauteilen
         \end{itemize}
         \vspace{-10pt}
