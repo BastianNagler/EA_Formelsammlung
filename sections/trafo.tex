@@ -58,8 +58,10 @@
         \item[] {\textbf{Bemessungsscheinleistung [VA]}}
             \begin{align*}
                 S_{rT} &= 3 \cdot U_{rT1,LE} \cdot I_{rT1} = 3 \cdot U_{rT2,LE} \cdot I_{rT2} \\
-                       &= 3 \cdot 4,44 \cdot N_1 \cdot f \cdot \hat{B}_r \cdot A_{Fe} \cdot I_{rT1} \\
+                       &= 3 \cdot 4,44 \cdot N_1 \cdot f \cdot \hat{B}_r \cdot A_{\text{Fe}} \cdot I_{rT1} \\
+                       &= 3 \cdot 4,44 \cdot f \cdot \hat{B}_r \cdot A_{\text{Fe}} \cdot A_{\text{Cu}} \cdot J_r
             \end{align*}
+            mit dem Gesamtkupferquerschnitt einer Phase \(A_{\text{Cu}} = N_1 \cdot A_{L1}\) und der Stromdichte \(J_r\).
 \end{itemize}
 
 \subsection{Ersatzschaltbild (ESB)}
@@ -259,6 +261,17 @@
     \begin{enumerate}
         \item Schaltgruppe mit gleicher Kennzahl
         \item Gleiches Übersetzungsverhältnis
-        \item annähernd gleiche Kurzschlussspannung (max. diff. 10\%)
+        \item annähernd gleiche Kurzschlussspannung (max. diff. \SI{10}{\percent})
         \item Bemessungsscheinleistung kleiner als 3:1
     \end{enumerate}
+
+    \textbf{Parallelbetrieb unter Last}: \\
+    Lastverteilung (bei ungleichen Kurzschlussspannungen, gleiche Impedanzwinkel):
+    \begin{align*}
+        \frac{I_{T1}}{I_{T2}} = \frac{S_{T1}}{S_{T2}} = \frac{u_{kT2} \cdot S_{rT1}}{u_{kT1} \cdot S_{rT2}}
+    \end{align*}
+    Maximale übertragbare Gesamtleistung (ohne Überlastung eines Trafos):
+    \begin{align*}
+        S_{T\text{max}} = \left( \frac{S_{rT}}{S_T} \right)_{\text{min}} \cdot S_{T\text{ges}}
+    \end{align*}
+    wobei \(S_T\) die theoretische Belastung bei Vollleistung ist.

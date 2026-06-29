@@ -19,6 +19,7 @@
             U_B = a + b \cdot l + \frac{c + d \cdot l}{I}
         \end{align*}
         \(a, b, c, d\) : empirische Konstanten. Für Kupfer:
+        \vspace{-10pt}
         \begin{table}[H]
             \begin{tabular}{l l}
                 \toprule
@@ -29,5 +30,21 @@
                 \bottomrule
             \end{tabular}
         \end{table}
+        \vspace{-12pt}
         {\small Diagramm: Kathode auf \SI{0}{\volt}}
 
+        \textbf{Löschkammer-Plattenzahl}: \\
+        Zerschneiden des Bogens in \(n_{\text{Bleche}}\) Teilbögen. Erlöschen bei:
+        \begin{align*}
+            n_{\text{Bleche}} \ge \frac{U}{a}
+        \end{align*}
+
+        \textbf{Stabilitätsgrenze (Maschenregel)}: \\
+        Für ein Netz mit Quellspannung \(U_0\) und Vorwiderstand \(R\):
+        \begin{align*}
+            U_0 = R \cdot I + U_B(I) \quad \text{mit} \quad U_B(I) = a + b \cdot l + \frac{c + d \cdot l}{I}
+        \end{align*}
+        Grenzpunkt der Stabilität (Tangentenzustand):
+        \begin{align*}
+            I_{\text{stab}} = \frac{2(c + d \cdot l)}{U_0 - (a + b \cdot l)} \qquad R_{\text{max}} = \frac{c + d \cdot l}{I_{\text{stab}}^2} = \frac{U_0 - U_B(I_{\text{stab}})}{I_{\text{stab}}}
+        \end{align*}
